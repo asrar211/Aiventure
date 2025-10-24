@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://aiventure-r36z.onrender.com/api",
+  baseURL: "http://localhost:8009/api",
   headers: {
     "Content-Type": "application/json"
   }
