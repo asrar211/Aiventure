@@ -6,7 +6,13 @@ import itenaryRoutes from "./routes/itenaryRoutes";
 
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Allow all origins (only for development/testing)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/itenary", itenaryRoutes);
