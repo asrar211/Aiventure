@@ -11,12 +11,12 @@ import {
 export const Input = () => {
   return (
     <div className="relative bg-slate-950 h-screen w-full">
-        <div className="bg-white blur-[250px] absolute h-50 w-50 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></div>
+        <div className="bg-white blur-[250px] absolute h-80 w-80 rounded-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></div>
         <div className="flex justify-center items-center h-screen">
   <form className="flex flex-col text-gray-400 gap-2 p-10 bg-slate-950 rounded-xl z-50 border border-gray-700">
     <label htmlFor="location" className="text-[13px] font-light">Location</label>
     <input 
-      className="w-[260px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
+      className="w-[260px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] text-[14px] font-light hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
       type="text" 
       name="location" 
       id="location" 
@@ -25,7 +25,7 @@ export const Input = () => {
 
     <label htmlFor="prefrences" className="text-[13px] font-light mt-3">Your Prefrences</label>
     <input 
-      className="w-[260px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
+      className="w-[260px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] text-[14px] font-light hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
       type="text" 
       name="prefrences" 
       id="prefrences" 
@@ -39,7 +39,7 @@ export const Input = () => {
 
     <label htmlFor="group" className="text-[13px] font-light mt-3">Group Size</label>
     <input 
-      className="w-[260px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] text-gray-400 hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      className="w-[260px] font-light text-[14px] px-2 py-1.5 rounded-md bg-black border border-gray-700 outline-none placeholder:text-[13px] text-gray-400 hover:border-gray-500 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
       type="number" 
       name="group" 
       id="group" 
