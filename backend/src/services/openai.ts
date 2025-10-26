@@ -1,16 +1,10 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-
 export interface ItineraryInput {
   location: string;
   preferences: string;
   dates: { start: string; end: string };
   groupSize?: number;
-  includeImages?: boolean;
 }
 
 export interface DayPlan {
@@ -28,6 +22,10 @@ export interface ItineraryOutput {
   groupSize?: number;
   days: DayPlan[];
 }
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 export const getItineraryFromGPT = async (input: ItineraryInput): Promise<ItineraryOutput> => {
   if (!input.location || !input.preferences || !input.dates.start || !input.dates.end) {

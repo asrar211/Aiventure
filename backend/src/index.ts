@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express, { Request, Response } from "express";
 import cors from "cors";
-import itenaryRoutes from "./routes/itenaryRoutes";
+import itineraryRoutes from "./routes/itenaryRoutes";
 
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api/itenary", itenaryRoutes);
+app.use("/api/itinerary", itineraryRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("AI Travel Planner Backend Running");

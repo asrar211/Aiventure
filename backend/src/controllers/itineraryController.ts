@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { getItineraryFromGPT, ItineraryInput, ItineraryOutput } from "../services/openai";
 
-export const generateItenary = async (req: Request, res: Response) => {
+export const generateItinerary = async (req: Request, res: Response) => {
   try {
-    const { location, preferences, dates, groupSize, includeImages } = req.body;
+    const { location, preferences, dates, groupSize } = req.body;
 
     if (!location || !preferences || !dates || !dates.start || !dates.end) {
       return res.status(400).json({ error: "Missing required fields: location, preferences, or dates" });
@@ -14,7 +14,6 @@ export const generateItenary = async (req: Request, res: Response) => {
       preferences,
       dates,
       groupSize,
-      includeImages
     };
 
     const itinerary: ItineraryOutput = await getItineraryFromGPT(input);

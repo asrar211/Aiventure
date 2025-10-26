@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { generateItenary } from "../controllers/itenaryController";
+import { generateItinerary } from "../controllers/itineraryController";
 import { dailyRequestLimiter } from "../middlewares/dailyRate";
 
 const router = Router();
 
-router.post("/", dailyRequestLimiter, generateItenary);
+router.post("/", dailyRequestLimiter, generateItinerary);
 
 export default router;
