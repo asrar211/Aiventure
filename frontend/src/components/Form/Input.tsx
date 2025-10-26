@@ -45,7 +45,7 @@ export const Input = () => {
       id="group" 
       min="1"
       placeholder="1" 
-      onWheel={(e) => e.target.blur()}
+      onWheel={(e) => (e.target as HTMLInputElement).blur()}
     />
 
     <button className="mt-3 p-2 bg-white text-black rounded-md text-sm cursor-pointer">
