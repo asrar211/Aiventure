@@ -48,7 +48,7 @@ export const Input = () => {
       onWheel={(e) => e.target.blur()}
     />
 
-    <button className="mt-3 bg-blue-600 p-2 rounded text-white hover:bg-blue-700">
+    <button className="mt-3 p-2 bg-white text-black rounded-md text-sm cursor-pointer">
       Generate Itinerary
     </button>
   </form>
