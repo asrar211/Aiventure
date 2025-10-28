@@ -32,15 +32,16 @@ export const getItineraryFromGPT = async (input: ItineraryInput): Promise<Itiner
     throw new Error("Missing required fields: location, preferences, or dates");
   }
 
-const prompt = `
-You are an expert travel planner. Generate a **highly detailed, day-by-day travel itinerary**.
-Requirements:
+  const prompt = `
+You are an expert travel planner. Generate a highly detailed, day-by-day travel itinerary.
 
+Requirements:
 - Location: ${input.location}
 - Dates: ${input.dates.start} to ${input.dates.end}
 - Traveler preferences: ${input.preferences}
 - Group size: ${input.groupSize || 1}
-- Output **strictly JSON** in the following format:
+
+Output strictly JSON in the following format:
 
 {
   "location": "string",
@@ -60,13 +61,13 @@ Requirements:
         "afternoon": {...},
         "evening": {...}
       },
-      "tips": "string",
+      "tips": "string"
     }
   ]
 }
 
-Include **multiple activities, restaurants, sightseeing spots per time block**.
-Provide **travel tips** for each day.
+Include multiple activities, restaurants, and sightseeing spots per time block.
+Provide travel tips for each day.
 Return valid JSON only, no extra text.
 `;
 
@@ -74,16 +75,16 @@ Return valid JSON only, no extra text.
     model: "gpt-4o-mini",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 1200,
+    max_tokens: 4000,
     response_format: { type: "json_object" }
   });
 
   try {
-  const rawContent = response.choices[0].message?.content || "{}";
-  const itinerary: ItineraryOutput = JSON.parse(rawContent);
-  return itinerary;
-} catch (err) {
-  console.error("Raw GPT output:", response.choices[0].message?.content);
-  throw new Error("Failed to parse GPT response as JSON: " + err);
-}
+    const rawContent = response.choices[0].message?.content || "{}";
+    const itinerary: ItineraryOutput = JSON.parse(rawContent);
+    return itinerary;
+  } catch (err) {
+    console.error("Raw GPT output:", response.choices[0].message?.content);
+    throw new Error("Failed to parse GPT response as JSON: " + err);
+  }
 };
