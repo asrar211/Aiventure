@@ -71,17 +71,19 @@ Return valid JSON only, no extra text.
 `;
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o-mini",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 1200
+    max_tokens: 1200,
+    response_format: { type: "json_object" }
   });
 
   try {
-    const rawContent = response.choices[0].message?.content || "{}";
-    const itinerary: ItineraryOutput = JSON.parse(rawContent);
-    return itinerary;
-  } catch (err) {
-    throw new Error("Failed to parse GPT response as JSON: " + err);
-  }
+  const rawContent = response.choices[0].message?.content || "{}";
+  const itinerary: ItineraryOutput = JSON.parse(rawContent);
+  return itinerary;
+} catch (err) {
+  console.error("Raw GPT output:", response.choices[0].message?.content);
+  throw new Error("Failed to parse GPT response as JSON: " + err);
+}
 };
