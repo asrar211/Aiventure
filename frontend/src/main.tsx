@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Form } from './pages/Form.tsx'
-import { Itenary } from './pages/Itenary.tsx'
+import { Itinerary } from './pages/Itinerary.tsx'
 import { Error } from './pages/Error.tsx'
 
 const router = createBrowserRouter([
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
     element: <Form/>
   },
   {
-    path: '/itenary',
-    element: <Itenary/> 
+    path: '/itinerary',
+    element: <Itinerary/> 
   }
 ])
 

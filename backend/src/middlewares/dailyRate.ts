@@ -3,7 +3,7 @@ import { Request } from "express";
 
 export const dailyRequestLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000,
-  max: 1, //TODO: Adjust the limit as needed 
+  max: 10, //TODO: Adjust the limit as needed 
   message: {
     error: "You have already generated an itinerary today. Please try again tomorrow."
   },

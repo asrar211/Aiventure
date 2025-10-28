@@ -8,6 +8,6 @@ const api = axios.create({
 });
 
 export const generateItinerary = async (data: any) => {
-  const res = await api.post("/itenary", data);
+  const res = await api.post("/itinerary", data);
   return res.data.itinerary;
 };
