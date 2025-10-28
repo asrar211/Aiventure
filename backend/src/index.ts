@@ -6,12 +6,11 @@ import itineraryRoutes from "./routes/itenaryRoutes";
 
 
 const app = express();
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  })
-);
+app.use(cors({
+  origin: ["http://localhost:5173", "https://aiventure-nine.vercel.app"],
+  credentials: true,
+}));
+
 
 app.use(express.json());
 
